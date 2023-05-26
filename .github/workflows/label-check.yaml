@@ -3,7 +3,9 @@ name: Ensure PR is labeled
 on:
   pull_request:
     types:
+      - opened
       - labeled
+      - unlabeled
 
 env:
   LABELS: ${{ join( github.event.pull_request.labels.*.name, ' ' ) }}
