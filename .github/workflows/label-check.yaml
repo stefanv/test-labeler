@@ -1,15 +1,11 @@
 name: Labels
 
 on:
-  pull_request:
-    types:
-      - opened
-      - labeled
-      - unlabeled
+  pull_request_review:
+    types: [submitted]
 
 env:
   LABELS: ${{ join( github.event.pull_request.labels.*.name, ' ' ) }}
-
 
 jobs:
   check-type-label:
